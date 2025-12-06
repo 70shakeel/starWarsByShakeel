@@ -8,14 +8,15 @@ interface CharacterListProps {
 }
 
 const CharacterList: React.FC<CharacterListProps> = ({ characters, isLoading }) => {
-  return isLoading ? (
-    <Spinner />
-  ) : (
-    <section className="cards">
-      {characters.map((char) => (
-        <Character key={char.name} character={char}></Character>
-      ))}
-    </section>
+  return (
+    <>
+      <section className="cards">
+        {characters.map((char) => (
+          <Character key={char.name} character={char}></Character>
+        ))}
+      </section>
+      {isLoading && <Spinner />}
+    </>
   );
 };
 
